@@ -4,6 +4,6 @@
   "displayName": "OSM Distribution Modules",
   "description": "LP-0018 OpenStreetMap distribution modules for Logos: registry SDK + Basecamp app",
   "homepage": "https://github.com/aegonmyy/logos-osm",
-  "indexUrl": "https://github.com/aegonmyy/logos-modules-release-base/releases/download/index/index.json",
+  "indexUrl": "https://github.com/ameenme/logos-modules-release-base/releases/download/index/index.json",
   "trustedSigners": []
 }
