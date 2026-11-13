@@ -1,15 +1,8 @@
 name: Release osm-renderer
 
 # Manually-triggered release for the OSM map renderer module.
-#
-# The renderer lives inside the same repository as the SDK module
-# (submodules/logos-osm/examples/osm-renderer), so its module_path points
-# *inside* the submodule. The release action inits the containing submodule
-# and then cds into examples/osm-renderer/, which has its own flake.nix
-# exposing lgx-portable (see app/flake.nix for the same pattern).
-#
-# Source of truth for module name + version is
-# submodules/logos-osm/examples/osm-renderer/metadata.json.
+# Calls the upstream release action directly with 3 variants (windows
+# cross-compile is slow and not needed for testing; can be added later).
 
 on:
   workflow_dispatch:
@@ -19,14 +12,14 @@ on:
         type: boolean
         default: false
 
-# Forked repos default to a read-only GITHUB_TOKEN.
 permissions:
   contents: write
 
 jobs:
   release:
-    uses: ./.github/workflows/_release-module.yml
+    uses: logos-co/logos-modules-release-action/.github/workflows/release.yml@v1
     with:
       module_path: submodules/logos-osm/examples/osm-renderer
-      force_build: ${{ inputs.force_build }}
+      skip_if_published: ${{ !inputs.force_build }}
+      variants: "darwin-arm64,linux-amd64,linux-arm64"
     secrets: inherit
