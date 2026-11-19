@@ -19,3 +19,9 @@
 [submodule "submodules/logos-osm"]
 	path = submodules/logos-osm
 	url = https://github.com/aegonmyy/logos-osm
+[submodule "submodules/osm-search-core"]
+	path = submodules/osm-search-core
+	url = https://github.com/aegonmyy/osm-search-core
+[submodule "submodules/osm-search-app"]
+	path = submodules/osm-search-app
+	url = https://github.com/aegonmyy/osm-search-app
